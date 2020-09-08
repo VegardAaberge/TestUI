@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 namespace TestUI
 {
     public partial class App : Application
@@ -15,6 +19,9 @@ namespace TestUI
 
         protected override void OnStart()
         {
+            AppCenter.Start("ios=3fff152c-2125-4ba2-9ec1-558f522cf827;" +
+                  "android=1b74da5c-da7e-41eb-a3a4-fb5fe5bfb740;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
