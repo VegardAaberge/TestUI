@@ -2,13 +2,14 @@
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
+using TestUI.Strings;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
 namespace TestUI.UITests
 {
     [TestFixture(Platform.Android)]
-    [TestFixture(Platform.iOS)]
+    //[TestFixture(Platform.iOS)]
     public class Tests
     {
         IApp app;
@@ -30,6 +31,15 @@ namespace TestUI.UITests
         {
             AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to TestUI!"));
             app.Screenshot("Welcome screen.");
+
+            Assert.IsTrue(results.Any());
+        }
+
+        [Test]
+        public void CanNavigate()
+        {
+            app.Tap(AutomationId.TripsButton);
+            AppResult[] results = app.WaitForElement(c => c.Marked(AutomationId.TripsListView));
 
             Assert.IsTrue(results.Any());
         }

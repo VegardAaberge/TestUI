@@ -50,6 +50,10 @@
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\TestUI\TestUI.csproj">
+      <Project>{18BF69C1-E831-4C85-96F5-808AA44B8AF7}</Project>
+      <Name>TestUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.cs" />

@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:strings="clr-namespace:TestUI.Strings"
     ios:Page.UseSafeArea="true"
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="#2196F3"
@@ -14,6 +15,7 @@
         </Frame>
 
         <Button
+            AutomationId="{x:Static strings:AutomationId.TripsButton}"
             Margin="20, 10"
             FontSize="17"
             BackgroundColor="Orange"
