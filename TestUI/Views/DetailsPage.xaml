@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TestUI.Views.DetailsPage"
+    Title="{Binding Entry.Title}">
+
+    <StackLayout>
+        <Label Text="{Binding Entry.Date, StringFormat='Date: {0:M}'}" />
+        <Label Text="{Binding Entry.Rating, StringFormat='Rating: {0} star rating'}"  />
+        <Label Text="{Binding Entry.Latitude, StringFormat='Latitude: {0}'}" />
+        <Label Text="{Binding Entry.Longitude, StringFormat='Longitude: {0}'}" />
+        <Label Text="{Binding Entry.Notes, StringFormat='Notes: {0}'}" />
+	</StackLayout>
+</ContentPage>

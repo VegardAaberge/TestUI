@@ -16,4 +16,10 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Root\" />
+  </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AppCenter.Crashes;
 
-namespace TestUI
+namespace TestUI.Models
 {
     public class CrashClass
     {
