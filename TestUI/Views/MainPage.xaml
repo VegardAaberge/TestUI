@@ -14,7 +14,8 @@
 
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell
+                <ImageCell
+                    ImageSource="{Binding Image }"
                     TextColor="Black"
                     Text="{Binding Title }" />
             </DataTemplate>
