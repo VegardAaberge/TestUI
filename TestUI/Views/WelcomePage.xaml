@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#2196F3"
+    x:Class="TestUI.Views.WelcomePage">
+
+    <StackLayout BackgroundColor="White">
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0" HasShadow="False">
+            <Label Text="Welcome to TestUI!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
+        </Frame>
+
+        <Button
+            Margin="20, 10"
+            FontSize="17"
+            BackgroundColor="Orange"
+            Clicked="Button_Clicked"
+            FontAttributes="Bold"
+            TextColor="White"
+            Text="Go to Trips" />
+    </StackLayout>
+</ContentPage>

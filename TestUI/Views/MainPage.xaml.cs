@@ -20,6 +20,7 @@ namespace TestUI.Views
             if (e.SelectedItem is TripLogEntry tripLogEntry)
             {
                 Navigation.PushAsync(new DetailsPage(tripLogEntry));
+                listView.SelectedItem = null;
             }
         }
 
