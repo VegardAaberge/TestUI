@@ -10,10 +10,10 @@ namespace TestUI.UITests
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.StartApp();
+                return ConfigureApp.Android.EnableLocalScreenshots().StartApp();
             }
 
-            return ConfigureApp.iOS.StartApp();
+            return ConfigureApp.iOS.EnableLocalScreenshots().StartApp();
         }
     }
 }
