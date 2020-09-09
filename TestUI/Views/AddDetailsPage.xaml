@@ -2,11 +2,14 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:TestUI.Strings"
     x:Class="TestUI.Views.AddDetailsPage"
+    BackgroundColor="#F0F0F0"
     Title="New Log">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
+            AutomationId="{x:Static strings:AutomationId.AddDetailsSaveButton }"
             Clicked="SaveClicked"
             Text="Save" />
         <ToolbarItem
@@ -27,12 +30,12 @@
         </Grid.RowDefinitions>
 
         <Label Text="Title" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold" />
-        <Entry Text="{Binding EntryTitle }" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Keyboard="Text" />
+        <Entry Text="{Binding EntryTitle }" AutomationId="{x:Static strings:AutomationId.EntryTitle }" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Keyboard="Text" />
 
         <Label Text="Rating" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold"/>
-        <Entry Text="{Binding EntryRating }" BackgroundColor="White" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" />
+        <Entry Text="{Binding EntryRating }" AutomationId="{x:Static strings:AutomationId.EntryRating }" BackgroundColor="White" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" />
 
         <Label Text="Notes" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold" />
-        <Editor Text="{Binding EntryNotes }" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
+        <Editor Text="{Binding EntryNotes }" AutomationId="{x:Static strings:AutomationId.EntryNotes }" BackgroundColor="White" Grid.Row="2" Grid.Column="1" />
     </Grid>
 </ContentPage>

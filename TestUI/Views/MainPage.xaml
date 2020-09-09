@@ -8,6 +8,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
+            AutomationId="{x:Static strings:AutomationId.AddNewButton }"
             Clicked="ToolbarItem_Clicked"
             Text="Add" />
     </ContentPage.ToolbarItems>

@@ -30,16 +30,28 @@ namespace TestUI.UITests
         [Test]
         public void CanNavigate()
         {
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to TestUI!"));
+            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Trips!"));
             app.Screenshot("Welcome screen.");
             Assert.IsTrue(results.Any());
 
             app.Tap(AutomationId.TripsButton);
-            results = app.WaitForElement(c => c.Marked(AutomationId.TripsListView));
+            results = app.WaitForElement(c => c.Marked(AutomationId.AddNewButton));
             Assert.IsTrue(results.Any());
 
+            app.Tap(c => c.Marked(AutomationId.AddNewButton));
+            results = app.WaitForElement(c => c.Marked(AutomationId.EntryNotes));
+            Assert.IsTrue(results.Any());
+
+            app.EnterText(c => c.Marked(AutomationId.EntryTitle), "Title");
+            app.ClearText(c => c.Marked(AutomationId.EntryRating));
+            app.EnterText(c => c.Marked(AutomationId.EntryRating), "5");
+            app.EnterText(c => c.Marked(AutomationId.EntryNotes), "Here are some notes");
+            app.Tap(c => c.Marked(AutomationId.AddDetailsSaveButton));
+
             Thread.Sleep(1000);
-            app.TapCoordinates(300, 400);
+            app.TapCoordinates(300, 200);
+            app.TapCoordinates(300, 250);
+            app.TapCoordinates(300, 300);
             results = app.WaitForElement(c => c.Marked(AutomationId.TripDetailsStack));
             Assert.IsTrue(results.Any());
 
