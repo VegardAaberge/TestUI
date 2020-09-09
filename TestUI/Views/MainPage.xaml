@@ -6,6 +6,12 @@
     x:Class="TestUI.Views.MainPage"
     Title="Trips">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ToolbarItem_Clicked"
+            Text="Add" />
+    </ContentPage.ToolbarItems>
+
     <ListView
         x:Name="listView"
         AutomationId="{x:Static strings:AutomationId.TripsListView }"
