@@ -32,12 +32,13 @@ namespace TestUI.UITests
         {
             // Wait for welcome screen
             AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Trips!"));
-            app.Screenshot("Welcome screen.");
+            app.Screenshot("Welcome screen");
             Assert.IsTrue(results.Any());
 
             // Tap the trips button
             app.Tap(AutomationId.TripsButton);
             results = app.WaitForElement(c => c.Marked(AutomationId.AddNewButton));
+            app.Screenshot("Trips screen #1");
             Assert.IsTrue(results.Any());
 
             // Tap the add new button
@@ -50,18 +51,19 @@ namespace TestUI.UITests
             app.ClearText(c => c.Marked(AutomationId.EntryRating));
             app.EnterText(c => c.Marked(AutomationId.EntryRating), "5");
             app.EnterText(c => c.Marked(AutomationId.EntryNotes), "Here are some notes");
+            app.Screenshot("Add Details screen");
 
             // Return from the AddDetailsPage
             app.Tap(c => c.Marked(AutomationId.AddDetailsSaveButton));
             results = app.WaitForElement(c => c.Marked(AutomationId.TripsListView));
+            app.Screenshot("Trips with entry");
             Assert.IsTrue(results.Any());
 
             // Tap the first element
-            var length = app.Query(c => c.Marked(AutomationId.TripsListView).Child()).Length;
-            Assert.IsTrue(length == 1);
             var item = app.Query(c => c.Marked(AutomationId.TripsListView).Index(0));
             app.Tap(c => c.Text("Title"));
             results = app.WaitForElement(c => c.Marked(AutomationId.TripDetailsStack));
+            app.Screenshot("Details Page");
             Assert.IsTrue(results.Any());
 
             // Return from the details page
