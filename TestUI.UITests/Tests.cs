@@ -38,7 +38,7 @@ namespace TestUI.UITests
             // Tap the trips button
             app.Tap(AutomationId.TripsButton);
             results = app.WaitForElement(c => c.Marked(AutomationId.AddNewButton));
-            app.Screenshot("Trips screen #1");
+            app.Screenshot("Trips screen");
             Assert.IsTrue(results.Any());
 
             // Tap the add new button
@@ -66,24 +66,14 @@ namespace TestUI.UITests
             app.Screenshot("Details Page");
             Assert.IsTrue(results.Any());
 
+            app.SetOrientationLandscape();
+
             // Return from the details page
             Thread.Sleep(1000);
             app.Back();
             results = app.WaitForElement(c => c.Marked(AutomationId.TripsListView));
+            app.Screenshot("Trips with entry landscape");
             Assert.IsTrue(results.Any());
-        }
-
-        Func<AppQuery, AppQuery> GetElementFromList(string automationId, int index)
-        {
-            Func<AppQuery, AppQuery> itemInListView = null;
-
-            if (platform == Platform.Android)
-                itemInListView = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(index);
-            else if (platform == Platform.iOS)
-                itemInListView =
-                x => x.Marked(automationId).Index(0);
-
-            return itemInListView;
         }
     }
 }
