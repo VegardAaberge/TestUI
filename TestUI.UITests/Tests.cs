@@ -10,7 +10,7 @@ using Xamarin.UITest.Queries;
 namespace TestUI.UITests
 {
     [TestFixture(Platform.Android)]
-    [TestFixture(Platform.iOS)]
+    //[TestFixture(Platform.iOS)]
     public class Tests
     {
         IApp app;
@@ -47,10 +47,10 @@ namespace TestUI.UITests
             Assert.IsTrue(results.Any());
 
             // Fill in the fields
-            app.EnterText(c => c.Marked(AutomationId.EntryTitle), "Title");
+            EnterTextInEntry(AutomationId.EntryTitle, "Title");
             app.ClearText(c => c.Marked(AutomationId.EntryRating));
-            app.EnterText(c => c.Marked(AutomationId.EntryRating), "5");
-            app.EnterText(c => c.Marked(AutomationId.EntryNotes), "Here are some notes");
+            EnterTextInEntry(AutomationId.EntryRating, "5");
+            EnterTextInEntry(AutomationId.EntryNotes, "Here are some notes");
             app.Screenshot("Add Details screen");
 
             // Return from the AddDetailsPage
@@ -74,6 +74,17 @@ namespace TestUI.UITests
             results = app.WaitForElement(c => c.Marked(AutomationId.TripsListView));
             app.Screenshot("Trips with entry landscape");
             Assert.IsTrue(results.Any());
+        }
+
+        private void EnterTextInEntry(string automationId, string text)
+        {
+            app.EnterText(c => c.Marked(automationId), text);
+            var entry = app.Query(c => c.Marked(automationId));
+
+            if(entry.First().Text != text)
+            {
+                app.Query(x => x.Marked(automationId).Invoke("setText", text));
+            }
         }
     }
 }
